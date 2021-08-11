@@ -1,0 +1,45 @@
+html {
+    font-size: 1px; /*could also use 62.5%*/
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    height: 100vh;
+    font-size: 16px;
+    font-family: Helvetica, Arial, Helvetica, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main  '
+        'footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    height: 100%;
+}
+
+header {
+    grid-area: header;
+    background-color: #203040;
+}
+
+main {
+    grid-area: main;
+    padding: 10px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #203040;
+    color: white;
+}
+
+.rows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
