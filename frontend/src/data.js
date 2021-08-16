@@ -12,7 +12,7 @@ const data = {
             description: 'stylish gucci shirt'
         },
         {
-            _id: '1',
+            _id: '2',
             name: 'Gucci Shirt',
             category: 'Shirts',
             image: '/images/dude.jpg',
@@ -23,7 +23,7 @@ const data = {
             description: 'stylish gucci shirt'
         },
         {
-            _id: '1',
+            _id: '3',
             name: 'Gucci Shirt',
             category: 'Shirts',
             image: '/images/dude.jpg',
@@ -34,7 +34,7 @@ const data = {
             description: 'stylish gucci shirt'
         },
         {
-            _id: '1',
+            _id: '4',
             name: 'Gucci Shirt',
             category: 'Shirts',
             image: '/images/dude.jpg',
@@ -45,7 +45,7 @@ const data = {
             description: 'stylish gucci shirt'
         },
         {
-            _id: '1',
+            _id: '5',
             name: 'Gucci Shirt',
             category: 'Shirts',
             image: '/images/dude.jpg',
@@ -56,7 +56,7 @@ const data = {
             description: 'stylish gucci shirt'
         },
         {
-            _id: '1',
+            _id: '6',
             name: 'Gucci Shirt',
             category: 'Shirts',
             image: '/images/dude.jpg',
