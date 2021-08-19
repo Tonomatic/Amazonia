@@ -18,7 +18,7 @@ const data = {
             image: '/images/dude.jpg',
             price: 50,
             brand: 'Gucci',
-            rating: 5,
+            rating: 4,
             numReviews: 9,
             description: 'stylish gucci shirt'
         },
@@ -51,7 +51,7 @@ const data = {
             image: '/images/dude.jpg',
             price: 200,
             brand: 'Gucci',
-            rating: 5,
+            rating: 2,
             numReviews: 9,
             description: 'stylish gucci shirt'
         },

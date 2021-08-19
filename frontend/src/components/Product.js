@@ -3,20 +3,18 @@ import Rating from './Rating'
 
 export default function Product(props) {
     const { product } = props;
-
-
     return (
         <div>
-            <div key={item._id} className="card">
-                <a href={`/product/${item._id}`}>
-                    <img className="mediumImg" src={item.image} alt="product" />
+            <div key={product._id} className="card">
+                <a href={`/product/${product._id}`}>
+                    <img className="mediumImg" src={product.image} alt="product" />
                 </a>
                 <div className="card-body">
-                    <a href={`/product/${item._id}`}>
-                        <h2>{item.name}</h2>
+                    <a href={`/product/${product._id}`}>
+                        <h2>{product.name}</h2>
                     </a>
-                    <Rating rating={item.rating} numReviews={item.numReviews}></Rating>
-                    <div className="price">${item.price}</div>
+                    <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
+                    <div className="price">${product.price}</div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Product from './components/Product';
 import data from './data';
 
 function App() {
