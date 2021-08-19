@@ -58,6 +58,18 @@ a {
   text-decoration: none;
 }
 
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Helvetica, Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -106,7 +118,7 @@ img.mediumImg {
 
 .card {
   border: 0.2rem #c0c0c0 solid;
-  background-color: white;
+  background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
 }
@@ -139,5 +151,13 @@ h2 {
 }
 
 .rating span:last-child {
-  color:#404040;
+  color: #404040;
+}
+
+.success {
+  color: #20a020;
+}
+
+.error {
+  color: #a02020;
 }
