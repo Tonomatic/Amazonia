@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../data';
+import { Link } from 'react-router-dom'
 import Rating from '../components/Rating';
 
 export default function ProductScreen(props) {
@@ -11,7 +12,8 @@ export default function ProductScreen(props) {
     }
     return (
         <div>
-            <div className="rows">
+            <Link to="/">Back to Results</Link>
+            <div className="rows top">
                 <div className="col-2">
                     <img className="large" src={product.image} alt={product.name}></img>
                 </div>
