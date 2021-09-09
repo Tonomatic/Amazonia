@@ -14,7 +14,7 @@ const data = {
         },
         {
             _id: '2',
-            name: 'Gucci Shirt',
+            name: 'Gucci Shoes',
             category: 'Shirts',
             image: '/images/dude.jpg',
             price: 50,
@@ -26,7 +26,7 @@ const data = {
         },
         {
             _id: '3',
-            name: 'Gucci Shirt',
+            name: 'Gucci Pants',
             category: 'Shirts',
             image: '/images/dude.jpg',
             price: 300,
@@ -38,7 +38,7 @@ const data = {
         },
         {
             _id: '4',
-            name: 'Gucci Shirt',
+            name: 'Gucci Belt',
             category: 'Shirts',
             image: '/images/dude.jpg',
             price: 100,
@@ -50,7 +50,7 @@ const data = {
         },
         {
             _id: '5',
-            name: 'Gucci Shirt',
+            name: 'Gucci Sweater',
             category: 'Shirts',
             image: '/images/dude.jpg',
             price: 200,
@@ -62,7 +62,7 @@ const data = {
         },
         {
             _id: '6',
-            name: 'Gucci Shirt',
+            name: 'Gucci Tie',
             category: 'Shirts',
             image: '/images/dude.jpg',
             price: 200,
