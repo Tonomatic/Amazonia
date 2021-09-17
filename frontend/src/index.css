@@ -117,8 +117,7 @@ a:hover {
 }
 
 .min-30 {
-  min-width: 5rem;
-  width: 100%;
+  min-width: 30rem;
 }
 
 

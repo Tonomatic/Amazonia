@@ -19,12 +19,12 @@ export default function CartScreen(props) {
         }
     }, [productId, qty, dispatch])
 
-    const removeFromCartHandlre = (id) => {
+    const removeFromCartHandler = (id) => {
         // implement delte action
     }
 
     const checkoutHandler = () => {
-        props.history.push('signin?redirect=shipping');
+        props.history.push('/signin?redirect=shipping');
     };
 
 
@@ -60,7 +60,7 @@ export default function CartScreen(props) {
                                         ${item.price}
                                     </div>
                                     <div>
-                                        <button type="button" onClick={() => removeFromCartHandlre(item.product)}>Delete</button>
+                                        <button type="button" onClick={() => removeFromCartHandler(item.product)}>Delete</button>
                                     </div>
                                 </div>
                             </li>
