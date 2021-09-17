@@ -31,7 +31,10 @@ function App() {
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="rows center">GiHub LinkedIn</footer>
+        <footer className="rows center">
+          <a href="https://github.com/Tonomatic">GitHub</a>
+          <a href="https://www.linkedin.com/in/jose-solis-17940b71/">LinkedIn</a>
+        </footer>
       </div>
     </BrowserRouter>
   );

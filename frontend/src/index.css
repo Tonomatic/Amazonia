@@ -131,7 +131,7 @@ a:hover {
 
 .rows.center {
   justify-content: center;
-}
+}  
 
 .rows.top {
   align-items: flex-start;
@@ -155,7 +155,7 @@ img {
 }
 
 img.mediumImg {
-  max-width: 29rem;
+  max-width: 25rem;
   width: 100%;
 }
 
