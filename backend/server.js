@@ -1,7 +1,14 @@
 const data = require('./data.js');
-const express = require('express')
-const app = express();
+const express = require('express');
+const mongoose = require('mongoose');
+const { userRouter } = require('./routers/userRouter.js');
 
+const app = express();
+mongoose.connect('mongodb://localhost/amazonia', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIdex: true,
+})
 
 const port = process.env.PORT || 5000;
 
@@ -20,6 +27,7 @@ app.get('/api/products/:id', (req, res) => {
     }
 })
 
+app.use('/api/users', userRouter);
 
 app.get('/', (req, res) => {
     res.send('Sever is ready')
