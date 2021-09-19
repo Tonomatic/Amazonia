@@ -1,5 +1,5 @@
 const express = require('express');
-const data = require('./data.js');
+const data = require('../data.js');
 const User = require('../models/userModel.js');
 
 
@@ -10,4 +10,4 @@ userRouter.get('/seed', async(req, res) => {
     res.send({ createdUsers });
 })
 
-export default userRouter;
+module.exports = userRouter;
