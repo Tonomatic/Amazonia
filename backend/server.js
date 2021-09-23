@@ -4,16 +4,21 @@ const mongoose = require('mongoose');
 const userRouter = require('./routers/userRouter.js');
 
 const app = express();
-async function main() {
-    mongoose.connect('mongodb://localhost/amazonia', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    })
-    // await mongoose.connect('mongodb://localhost/amazonia')
-}
+// async function main() {
+//     mongoose.connect('mongodb://localhost/amazonia', {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useCreateIndex: true,
+//     })
+//     await mongoose.connect('mongodb://localhost/amazonia')
+// }
+// main();
 
-main();
+// mongoose.connect('mongodb://localhost:5000/amazonia', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+// })
 
 
 //:id is a placeholder for id of product

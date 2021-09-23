@@ -131,7 +131,7 @@ a:hover {
 
 .rows.center {
   justify-content: center;
-}  
+}
 
 .rows.top {
   align-items: flex-start;
@@ -161,6 +161,10 @@ img.mediumImg {
 
 img.large {
   width: 100%;
+}
+
+.foot {
+  color: white;
 }
 
 .card {

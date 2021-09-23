@@ -32,8 +32,9 @@ function App() {
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="rows center">
-          <a href="https://github.com/Tonomatic">GitHub</a>
-          <a href="https://www.linkedin.com/in/jose-solis-17940b71/">LinkedIn</a>
+          <a href="https://github.com/Tonomatic" className="foot">GitHub</a>
+          <div>-</div>
+          <a href="https://www.linkedin.com/in/jose-solis-17940b71/" className="foot"> LinkedIn</a>
         </footer>
       </div>
     </BrowserRouter>
