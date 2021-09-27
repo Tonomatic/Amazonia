@@ -14,11 +14,10 @@ const app = express();
 // }
 // main();
 
-// mongoose.connect('mongodb://localhost:5000/amazonia', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-// })
+mongoose.connect('mongodb://localhost/amazonia', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
 
 
 //:id is a placeholder for id of product
