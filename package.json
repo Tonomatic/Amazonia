@@ -1,31 +1,33 @@
 {
-  "name": "amazonia",
+  "name": "tweetapplication",
   "version": "1.0.0",
-  "description": "## Currently under Construction :)",
+  "description": "A Mern Stack simple appliaction",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "server": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tonomatic/Amazonia.git"
+    "url": "git+https://github.com/Tonomatic/TweetApplication.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tonomatic/Amazonia/issues"
+    "url": "https://github.com/Tonomatic/TweetApplication/issues"
   },
-  "homepage": "https://github.com/Tonomatic/Amazonia#readme",
+  "homepage": "https://github.com/Tonomatic/TweetApplication#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "express-async-handler": "^1.1.4",
-    "mongodb": "^4.1.2",
-    "mongoose": "^5.2.8"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.25.1",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.13"
   }
 }
