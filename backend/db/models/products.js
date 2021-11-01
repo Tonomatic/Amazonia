@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Products.associate = function(models) {
     Products.hasMany(models.Review, {foreignKey: 'productId'})
+    Products.hasMany(models.Rating, {foreignKey: 'productId'})
   };
   return Products;
 };
