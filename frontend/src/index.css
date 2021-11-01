@@ -65,6 +65,7 @@ a.brand {
 
 a {
   text-decoration: none;
+  align-self: center;
 }
 
 input,
@@ -157,6 +158,8 @@ img {
 img.mediumImg {
   max-width: 25rem;
   width: 100%;
+  max-height: 25rem;
+  padding: 10px;
 }
 
 img.large {
@@ -172,6 +175,8 @@ img.large {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-body {
@@ -190,6 +195,7 @@ h1 {
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
+  width: 400px;
 }
 
 .price {
