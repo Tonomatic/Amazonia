@@ -43,9 +43,9 @@ export default function ProductScreen(props) {
                                     <h1>{product.name}</h1>
                                 </li>
                                 <li>
-                                    <Rating rating={product.rating} numReviews={product.numReviews} />
+                                    <Rating rating={Math.random() * 5} numReviews={product.numReviews} />
                                 </li>
-                                <li>Pirce : ${product.price}</li>
+                                <li>Price : ${product.price}</li>
                                 <li>
                                     Description:
                                     <p>{product.description}</p>

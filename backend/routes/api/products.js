@@ -9,6 +9,15 @@ router.get('/', asyncHandler(async function (req, res) {
     return res.json(products)
 }))
 
+router.get('/:id', asyncHandler(async function (req, res) {
+
+    const productId = parseInt(req.params.id, 10)
+
+    const product = await Products.findByPk(productId)
+
+    return res.json(product)
+}))
+
 
 
 module.exports = router;

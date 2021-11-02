@@ -3,33 +3,58 @@ import React from 'react';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import LoginFormPage from './components/LoginFormPage';
+import SignupFormPage from './components/SignupFormPage'
+import * as sessionActions from './reducers/userReducer'
+import ProfileButton from './screens/ProfileButton';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import Navigation from './screens/NavigationBar';
 function App() {
 
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch]);
   const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
 
 
   return (
+    <>
     <BrowserRouter>
+    <Navigation isLoaded={isLoaded} />
       <div className="grid-container">
-        <header className="rows">
-          <div>
-            <Link className="brand" to="/">amazonia</Link>
-          </div>
-          <div>
-            <Link to="/cart">Cart {cartItems.length > 0 && (
-              <span className="badge">{cartItems.length}</span>
-            )}
-            </Link>
-            <Link to="/signin">Sign In</Link>
-          </div>
-        </header>
+        {/* <header className="rows"> */}
+            {/* {isLoaded
+              ?
+              <div>
+                <Link to="/cart">Cart {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+                </Link>
+                <ProfileButton user={sessionUser}/>
+              </div>
+              :
+              <div>
+                <Link to="/cart">Cart {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+                </Link>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Sign-up</Link>
+              </div>
+            } */}
+        {/* </header> */}
         <main>
           <Route path="/cart/:id?" component={CartScreen} exact></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>
+          <Route path="/login"><LoginFormPage /></Route>
+          <Route path="/signup"><SignupFormPage /></Route>
         </main>
         <footer className="rows center">
           <a href="https://github.com/Tonomatic" className="foot">GitHub</a>
@@ -38,6 +63,7 @@ function App() {
         </footer>
       </div>
     </BrowserRouter>
+    </>
   );
 }
 

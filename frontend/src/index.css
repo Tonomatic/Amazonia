@@ -130,6 +130,16 @@ a:hover {
   align-items: center;
 }
 
+.rowsHome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rowsHome.center {
+  justify-content: center;
+}
+
 .rows.center {
   justify-content: center;
 }
@@ -163,7 +173,7 @@ img.mediumImg {
 }
 
 img.large {
-  width: 100%;
+  width: 75%;
 }
 
 .foot {
@@ -172,11 +182,12 @@ img.large {
 
 .card {
   border: 0.2rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  background-color: white;
   border-radius: 0.5rem;
   margin: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-body {
@@ -195,7 +206,7 @@ h1 {
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
-  width: 400px;
+  width: 375px;
 }
 
 .price {
