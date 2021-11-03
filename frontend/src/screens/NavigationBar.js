@@ -11,14 +11,21 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <div>
+                <Link to="/cart">Cart {cartItems.length > 0 && (
+                    <span className="badge">{cartItems.length}</span>
+                )}
+                </Link>
+                <ProfileButton user={sessionUser} />
+
+            </div>
         );
     } else {
         sessionLinks = (
-            <>
+            <div  >
                 <NavLink to="/login">Log In</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
-            </>
+            </div>
         );
     }
 
@@ -28,10 +35,7 @@ function Navigation({ isLoaded }) {
             <div>
                 <Link className="brand" to="/">amazonia</Link>
             </div>
-            <Link to="/cart">Cart {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-            )}
-            </Link>
+
             {isLoaded && sessionLinks}
         </header>
     );

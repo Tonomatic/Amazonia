@@ -45,7 +45,7 @@ footer {
 
 header a {
   color: white;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 a.brand {
@@ -103,6 +103,10 @@ button.block {
   width: 100%;
 }
 
+
+
+
+
 ul {
   padding: 0;
   margin: 0;
@@ -120,8 +124,6 @@ a:hover {
 .min-30 {
   min-width: 30rem;
 }
-
-
 
 .rows {
   display: flex;
@@ -174,6 +176,7 @@ img.mediumImg {
 
 img.large {
   width: 75%;
+  padding: 50px;
 }
 
 .foot {
@@ -233,7 +236,7 @@ h2 {
 .alert {
   padding: 1rem;
   border: 0.1rem solid transparent;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .alert-info {
