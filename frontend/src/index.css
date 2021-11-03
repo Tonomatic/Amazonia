@@ -103,10 +103,6 @@ button.block {
   width: 100%;
 }
 
-
-
-
-
 ul {
   padding: 0;
   margin: 0;
@@ -170,13 +166,15 @@ img {
 img.mediumImg {
   max-width: 25rem;
   width: 100%;
-  max-height: 25rem;
+  max-height: 20rem;
   padding: 10px;
 }
 
 img.large {
   width: 75%;
   padding: 50px;
+  max-width: 25rem;
+  max-height: 45rem;
 }
 
 .foot {

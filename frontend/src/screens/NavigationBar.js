@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
 
     return (
 
-        <header className="rows">
+        <header className="rows headerBar">
             <div>
                 <Link className="brand" to="/">amazonia</Link>
             </div>

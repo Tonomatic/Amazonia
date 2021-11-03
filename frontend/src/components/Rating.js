@@ -18,7 +18,7 @@ export default function Rating(props) {
                 <i className={rating >= 4 ? "fa fa-star" : rating >= 3.5 ? 'fa fa-star-half-o' :  'far fa-star'}></i>
             </span>
             <span>
-                <i className={rating >= 5 ? "fa fa-star" : rating >= 4.5 ? 'fa fa-star-half-o' :  'far fa-star'}></i>
+                <i className={rating >= 4.5 ? "fa fa-star" : 'far fa-star'}></i>
             </span>
             <span>
                 {numReviews + ' reviews'}

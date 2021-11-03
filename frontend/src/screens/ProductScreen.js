@@ -15,7 +15,7 @@ export default function ProductScreen(props) {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
 
-    useEffect(() => {
+      useEffect(() => {
         dispatch(detailsProduct(productId));
     }, [dispatch, productId])
 
