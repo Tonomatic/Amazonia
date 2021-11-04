@@ -49,7 +49,7 @@ function App() {
               </div>
             } */}
         {/* </header> */}
-        <main>
+        <main className="main2">
           <Route path="/cart/:id?" component={CartScreen} exact></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>

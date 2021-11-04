@@ -35,16 +35,16 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <header className="rows headerBar">
+        <header className="rows headerBar header2">
             <div className="sidebar">
                 {/* <button type="button" class="fas fa-bars"/> */}
                 <div>
-                    <Button variant="primary" onClick={handleShow} class="fas fa-bars" />
+                    <Button variant="primary" style={{backgroundColor:"#203040",border:"none",color:"white"}} onClick={handleShow} class="fas fa-bars" />
                     <Offcanvas show={show} scroll={true} backdrop={false} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
+                            <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
                         </Offcanvas.Header>
-                        <div>
+                        <div className="sidebarContent">
                             <li>
                                 <Link to="/">Clothing</Link>
                             </li>
@@ -59,7 +59,7 @@ function Navigation({ isLoaded }) {
                 </div>
                 <Link className="brand" to="/">amazonia</Link>
             </div>
-            <div class="search-container">
+            <div className="search-container">
                 <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search" style={{ cursor: "text" }} />
                     <button type="submit" style={{ backgroundColor: '#f0c040' }}><i class="fa fa-search"></i></button>

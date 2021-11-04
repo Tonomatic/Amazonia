@@ -20,26 +20,40 @@ body {
   display: grid;
   grid-template-areas:
     "header"
-    "showcase"
     "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 25rem 1fr 5rem;
+  grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
 
-.cartscreen {
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+    "showcase"
+    "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: 25rem 1fr;
+  height: 100%;
+}
+
+/* .carousel-item {
+  display: flex;
+  JUSTIFY-CONTENT: center;
+  align-items: center;
+} */
+
+.showcase {
   grid-area: showcase;
-  background-color: red;
 }
 
 
-header {
+.header2 {
   grid-area: header;
   background-color: #203040;
 }
 
-main {
+.main2 {
   grid-area: main;
   padding: 1rem;
 }
@@ -74,6 +88,13 @@ a.brand {
   padding: 0.2rem 0.7rem;
   font-size: 1.4rem;
   margin-left: 0.2rem;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  height: 25rem;
+  justify-content: space-around;
 }
 
 a {
