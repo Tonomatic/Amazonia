@@ -83,11 +83,11 @@ img.mediumImg {
   margin: 1rem;
 }
 
-.card-body {
+.card-bodyy {
   padding: 1rem;
 }
 
-.card-body > * {
+.card-bodyy > * {
   margin-bottom: 1rem;
 }
 

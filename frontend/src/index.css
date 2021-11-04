@@ -172,9 +172,9 @@ img {
 }
 
 img.mediumImg {
-  max-width: 25rem;
+  max-width: 20rem;
   width: 100%;
-  max-height: 20rem;
+  max-height: 11rem;
   padding: 10px;
 }
 
@@ -196,14 +196,14 @@ img.large {
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-.card-body {
+.card-bodyy {
   padding: 1rem;
 }
 
-.card-body > * {
+.card-bodyy > * {
   margin-bottom: 1rem;
 }
 
@@ -215,11 +215,11 @@ h1 {
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
-  width: 375px;
+  width: 290px;
 }
 
 .price {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .rating span {
@@ -253,4 +253,10 @@ h2 {
 .alert-danger {
   color: #a02020;
   background-color: #ffe0e0e0;
+}
+
+@media only screen and (max-width: 900px) {
+  .rows {
+    justify-content: center;
+  }
 }

@@ -70,7 +70,7 @@ export default function CartScreen(props) {
                     )}
             </div>
             <div className="col-1">
-                <div className="card card-body">
+                <div className="card card-bodyy">
                     <ul>
                         <li>
                             <h2>

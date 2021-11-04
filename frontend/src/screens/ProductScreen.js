@@ -53,7 +53,7 @@ export default function ProductScreen(props) {
                             </ul>
                         </div>
                         <div className="col-1">
-                            <div className="card card-body">
+                            <div className="card card-bodyy">
                                 <ul>
                                     <li>
                                         <div className="rows">
