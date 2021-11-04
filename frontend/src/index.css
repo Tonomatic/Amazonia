@@ -20,12 +20,19 @@ body {
   display: grid;
   grid-template-areas:
     "header"
-    "main  "
+    "showcase"
+    "main"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 5rem 25rem 1fr 5rem;
   height: 100%;
 }
+
+.cartscreen {
+  grid-area: showcase;
+  background-color: red;
+}
+
 
 header {
   grid-area: header;
@@ -45,7 +52,7 @@ footer {
 
 header a {
   color: white;
-  padding: 1.5rem;
+  padding: 0.5rem;
 }
 
 .rightSide {
@@ -144,6 +151,12 @@ a:hover {
   justify-content: center;
 }
 
+.sidebar {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
 .rows.center {
   justify-content: center;
 }
@@ -157,6 +170,10 @@ a:hover {
 }
 
 .col-2 {
+  flex: 2 1 25rem;
+}
+
+.col-3 {
   display: flex;
   justify-content: center;
   flex: 2 1 25rem;

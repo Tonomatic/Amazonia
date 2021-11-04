@@ -35,23 +35,26 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-
         <header className="rows headerBar">
-            <div>
+            <div className="sidebar">
                 {/* <button type="button" class="fas fa-bars"/> */}
                 <div>
-                    <Button variant="primary" onClick={handleShow}>
-                        Launch
-                    </Button>
-
-                    <Offcanvas show={show} onHide={handleClose}>
+                    <Button variant="primary" onClick={handleShow} class="fas fa-bars" />
+                    <Offcanvas show={show} scroll={true} backdrop={false} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                            <Offcanvas.Title style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            Some text as placeholder. In real life you can have the elements you
-                            have chosen. Like, text, images, lists, etc.
-                        </Offcanvas.Body>
+                        <div>
+                            <li>
+                                <Link to="/">Clothing</Link>
+                            </li>
+                            <li>
+                                <Link to="/">Jewelry</Link>
+                            </li>
+                            <li>
+                                <Link to="/">Technology</Link>
+                            </li>
+                        </div>
                     </Offcanvas>
                 </div>
                 <Link className="brand" to="/">amazonia</Link>
