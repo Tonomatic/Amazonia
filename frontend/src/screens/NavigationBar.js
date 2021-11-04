@@ -37,9 +37,8 @@ function Navigation({ isLoaded }) {
     return (
         <header className="rows headerBar header2">
             <div className="sidebar">
-                {/* <button type="button" class="fas fa-bars"/> */}
                 <div>
-                    <Button variant="primary" style={{backgroundColor:"#203040",border:"none",color:"white"}} onClick={handleShow} class="fas fa-bars" />
+                    <Button variant="primary" style={{backgroundColor:"#203040",border:"none",color:"white"}} onClick={handleShow} className="fas fa-bars" />
                     <Offcanvas show={show} scroll={true} backdrop={false} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
@@ -60,9 +59,9 @@ function Navigation({ isLoaded }) {
                 <Link className="brand" to="/">amazonia</Link>
             </div>
             <div className="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search" style={{ cursor: "text" }} />
-                    <button type="submit" style={{ backgroundColor: '#f0c040' }}><i class="fa fa-search"></i></button>
+                <form action="/action_page.php" style={{display:"flex",alignItems:"center"}}>
+                    <input type="text" placeholder="Search.." name="search" style={{ cursor: "text",borderRadius:"0px",height:"3rem" }} />
+                    <button type="submit" className="searchButton"><i className="fa fa-search"></i></button>
                 </form>
             </div>
             {isLoaded && sessionLinks}

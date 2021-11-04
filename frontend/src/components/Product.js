@@ -14,7 +14,7 @@ export default function Product(props) {
                     <h2>{product.name}</h2>
                 </Link>
                 <Rating rating={Math.random() * 5} numReviews={product.numReviews}></Rating>
-                <div className="price">${product.price}</div>
+                <div className="price">Price: ${product.price}</div>
             </div>
         </div>
     )
