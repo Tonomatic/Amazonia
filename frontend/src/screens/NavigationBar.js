@@ -11,7 +11,7 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <div>
+            <div className="rightSide">
                 <Link to="/cart">Cart {cartItems.length > 0 && (
                     <span className="badge">{cartItems.length}</span>
                 )}
