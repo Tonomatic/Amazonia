@@ -1,11 +1,11 @@
-# GoodMovies
+# Amazonia
 
-![GoodMovieDetailPage](https://user-images.githubusercontent.com/74742629/114240701-efd64900-9955-11eb-8caa-d01c9d3706be.png)
+![Amazonia](https://user-images.githubusercontent.com/74742629/140455008-b307ea27-ee7b-4d4c-a392-c69d6c15e805.png)
 
 
 ## Summary
 
-[GoodMovies](https://good-movies-js.herokuapp.com/) is a single-page web application based on Good Reads using Javascript, Express, and PostgresSQL. Good Movies allows users to:
+<!-- [GoodMovies](https://good-movies-js.herokuapp.com/) is a single-page web application based on Good Reads using Javascript, Express, and PostgresSQL. Good Movies allows users to:
 
 * Create an account
 * Log in / Log out
@@ -15,7 +15,7 @@
 * Rate movies
 * Leave reviews for movies
 * Search for movies based on a keyword
-* See a paginated view of each of the 900+ movies in the database
+* See a paginated view of each of the 900+ movies in the database -->
 
 ## Overall Structure
 
