@@ -32,25 +32,13 @@ function ProfileButton({ user }) {
 
     return (
         <>
-
-            {/* <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    User
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <button onClick={logout}>Log Out</button>
-                    <li>{user.username}</li>
-                </ul>
-            </div> */}
             <Dropdown>
-                <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary" style={{fontSize:'1.5rem',border:'none',backgroundColor: '#203040'}}>
+                <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary" style={{fontSize:'1.6rem',border:'none',backgroundColor: '#203040'}}>
                     User
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu variant="dark" style={{backgroundColor: '#203040'}}>
-                    {/* <Dropdown.Item>
-                        <Link to="/profile">User Profile</Link>
-                    </Dropdown.Item> */}
+
                     <Dropdown.Item href="/profile">User Profile</Dropdown.Item>
                     <Dropdown.Item href="/history">Order History</Dropdown.Item>
                     <Dropdown.Divider />

@@ -40,14 +40,14 @@ export default function ProductScreen(props) {
                         <div className="col-1">
                             <ul>
                                 <li>
-                                    <h1>{product.name}</h1>
+                                    <h1><b>{product.name}</b></h1>
                                 </li>
                                 <li>
                                     <Rating rating={Math.random() * 5} numReviews={product.numReviews} />
                                 </li>
-                                <li>Price : ${product.price}</li>
+                                <li><b>Price :</b> ${product.price}</li>
                                 <li>
-                                    Description:
+                                    <b>Description:</b>
                                     <p>{product.description}</p>
                                 </li>
                             </ul>
