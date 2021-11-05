@@ -24,7 +24,6 @@ export default function HomeScreen() {
     useEffect(() => {
         //sending ajax request
         dispatch(tenProducts())
-        console.log(productDetailsTen)
         dispatch(listProducts());
     }, [dispatch]);
     return (
