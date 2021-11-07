@@ -38,7 +38,7 @@ function Navigation({ isLoaded }) {
         <header className="rows headerBar header2">
             <div className="sidebar">
                 <div>
-                    <Button variant="primary" style={{ backgroundColor: "#203040", border: "none", color: "white" }} onClick={handleShow} className="fas fa-bars" />
+                    <Button variant="primary" onClick={handleShow} className="fas fa-bars" />
                     <Offcanvas show={show} scroll={true} backdrop={false} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>

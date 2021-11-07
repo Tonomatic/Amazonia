@@ -7,7 +7,7 @@ const reviewRouter = require('./reviews.js')
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/products', productsRouter);
-router.use('/review', reviewRouter)
+router.use('/reviews', reviewRouter)
 
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });
