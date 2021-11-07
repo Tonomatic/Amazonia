@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
-    reviewText: {
+    review: {
       type: DataTypes.TEXT,
       allowNull: false
     },

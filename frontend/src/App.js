@@ -11,6 +11,7 @@ import ProfileButton from './screens/ProfileButton';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Navigation from './screens/NavigationBar';
+import Profile from './screens/ProfileScreen';
 function App() {
 
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/" component={HomeScreen} exact></Route>
           <Route path="/login"><LoginFormPage /></Route>
           <Route path="/signup"><SignupFormPage /></Route>
+          <Route path="/profile" component={Profile}></Route>
         </main>
         <footer className="rows center">
           <a href="https://github.com/Tonomatic" className="foot">GitHub</a>
