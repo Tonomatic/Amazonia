@@ -7,11 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage'
 import * as sessionActions from './reducers/userReducer'
-import ProfileButton from './screens/ProfileButton';
+import ProfileButton from './components/ProfileButton';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Navigation from './screens/NavigationBar';
+import Navigation from './components/NavigationBar';
 import Profile from './screens/ProfileScreen';
+import AllScreen from './screens/AllScreen';
+import Categories from './screens/Categories';
 function App() {
 
   const dispatch = useDispatch();
@@ -53,7 +55,9 @@ function App() {
         <main className="main2">
           <Route path="/cart/:id?" component={CartScreen} exact></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
+          <Route path="/categories/:id" component={Categories} exact></Route>
           <Route path="/" component={HomeScreen} exact></Route>
+          <Route path="/all" component={AllScreen} exact></Route>
           <Route path="/login"><LoginFormPage /></Route>
           <Route path="/signup"><SignupFormPage /></Route>
           <Route path="/profile" component={Profile}></Route>

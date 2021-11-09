@@ -6,13 +6,26 @@ import Button from '@restart/ui/esm/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas'
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const products = useSelector(state => state.productList.products)
+    const loading = useSelector(state => state.productList.loading)
+    const [category, setCategory] = useState("electronics")
+
     const [show, setShow] = useState(false);
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
 
+
+    const categories = (x) => {
+        if (x !== category) {
+            setCategory(x)
+            return true;
+        } else {
+            return false
+        }
+    }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -39,19 +52,22 @@ function Navigation({ isLoaded }) {
             <div className="sidebar">
                 <div>
                     <Button variant="primary" onClick={handleShow} className="fas fa-bars" />
-                    <Offcanvas show={show} scroll={true} backdrop={false} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
+                    <Offcanvas show={show} scroll={true} backdrop={true} onHide={handleClose} style={{ backgroundColor: "#efefef", padding: "20px" }}>
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
                         </Offcanvas.Header>
                         <div className="sidebarContent">
                             <li>
-                                <Link to="/">Clothing</Link>
+                                <Link to={`/categories/electronics`} onClick={handleClose}>Electronics</Link>
                             </li>
                             <li>
-                                <Link to="/">Jewelry</Link>
+                                <Link to="/categories/jewelery" onClick={handleClose}>Jewelery</Link>
                             </li>
                             <li>
-                                <Link to="/">Technology</Link>
+                                <Link to="/categories/mensClothing" onClick={handleClose}>Men's Clothing</Link>
+                            </li>
+                            <li>
+                                <Link to="/categories/womensClothing" onClick={handleClose}>Women's Clothing</Link>
                             </li>
                         </div>
                     </Offcanvas>
