@@ -16,12 +16,7 @@ router.get('/', asyncHandler(async function (req, res) {
 
 
 
-router.get('/ten', asyncHandler(async function (req, res) {
-
-    // let productLimit = {
-
-    //     limit: 10,
-    // }
+router.get('/featured', asyncHandler(async function (req, res) {
 
     const products = await Products.findAll({
         where: {
@@ -35,7 +30,7 @@ router.get('/ten', asyncHandler(async function (req, res) {
 
 
 
-router.get('/:id', requireAuth, asyncHandler(async function (req, res) {
+router.get('/:id', asyncHandler(async function (req, res) {
 
     const productId = parseInt(req.params.id, 10)
 

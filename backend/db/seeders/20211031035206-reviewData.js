@@ -10,9 +10,25 @@ module.exports = {
       },
       {
         userId: 1,
-        productId: 4,
-        review: 'Meh, too expensive'
+        productId: 13,
+        review: 'This product is fantastic! High definition and a lot of screen mobility!'
       },
+      {
+        userId: 2,
+        productId: 13,
+        review: 'Personally, I did not think the product was that great.'
+      },
+      {
+        userId: 3,
+        productId: 13,
+        review: 'Good first buy 👍!'
+      },
+      {
+        userId: 1,
+        productId: 3,
+        review: 'Good product, and good price!'
+      },
+
       {
         userId: 2,
         productId: 8,

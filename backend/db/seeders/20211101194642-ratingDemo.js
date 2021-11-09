@@ -10,7 +10,17 @@ module.exports = {
       },
       {
         userId: 1,
-        productId: 4,
+        productId: 13,
+        rating: 5
+      },
+      {
+        userId: 2,
+        productId: 13,
+        rating: 2
+      },
+      {
+        userId: 3,
+        productId: 13,
         rating: 4
       },
       {

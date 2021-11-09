@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { detailsProduct } from '../actions/productActions';
+import { listReviews } from '../actions/reviewActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
@@ -10,14 +11,21 @@ export default function ProductScreen(props) {
 
     //compares and finds the product that matches url id
     const productDetails = useSelector(state => state.productDetails);
+    const reviewsList = useSelector(state => state.reviewList);
     const [qty, setQty] = useState(1)
+
+
     const { loading, error, product } = productDetails;
+    const { reviews } = reviewsList;
+
     const dispatch = useDispatch();
     const productId = props.match.params.id;
 
-      useEffect(() => {
+    useEffect(() => {
         dispatch(detailsProduct(productId));
+        dispatch(listReviews(productId))
     }, [dispatch, productId])
+
 
     const addToCartHandler = () => {
         //changes the rows in react application
@@ -50,6 +58,20 @@ export default function ProductScreen(props) {
                                     <b>Description:</b>
                                     <p>{product.description}</p>
                                 </li>
+                                <lid>
+                                    <h1>
+                                        <b>Reviews:
+                                        </b>
+                                        {reviews?.map(each => (
+                                            <div>User {each.userId} says:
+                                                <div>
+
+                                                    "{each.review}"
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </h1>
+                                </lid>
                             </ul>
                         </div>
                         <div className="col-1">
@@ -75,25 +97,25 @@ export default function ProductScreen(props) {
                                     {
                                         product.countInStock > 0 && (
                                             <>
-                                            <li>
-                                                <div className="rows">
-                                                    <div>Qty</div>
-                                                    <div>
-                                                        <select value={qty} onChange={e => setQty(e.target.value)}>
-                                                            {
-                                                                [...Array(product.countInStock).keys()].map((x) => (
-                                                                    <option key={x+1} value={x+1}>
-                                                                        {x+1}
-                                                                    </option>
-                                                                ))
-                                                            }
-                                                        </select>
+                                                <li>
+                                                    <div className="rows">
+                                                        <div>Qty</div>
+                                                        <div>
+                                                            <select value={qty} onChange={e => setQty(e.target.value)}>
+                                                                {
+                                                                    [...Array(product.countInStock).keys()].map((x) => (
+                                                                        <option key={x + 1} value={x + 1}>
+                                                                            {x + 1}
+                                                                        </option>
+                                                                    ))
+                                                                }
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
-                                            </li>
+                                                </li>
+                                                <li>
+                                                    <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
+                                                </li>
                                             </>
                                         )
                                     }

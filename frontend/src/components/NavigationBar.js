@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
     }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -68,6 +68,9 @@ function Navigation({ isLoaded }) {
                             </li>
                             <li>
                                 <Link to="/categories/womensClothing" onClick={handleClose}>Women's Clothing</Link>
+                            </li>
+                            <li>
+                                <Link to="/all" onClick={handleClose}>All</Link>
                             </li>
                         </div>
                     </Offcanvas>

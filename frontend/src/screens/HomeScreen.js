@@ -3,14 +3,14 @@ import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts, tenProducts } from '../actions/productActions';
+import { listProducts, featuredProducts } from '../actions/productActions';
 import Carousel from 'react-bootstrap/Carousel'
 import { Link } from 'react-router-dom';
 
 export default function HomeScreen() {
     //react hook, to manage state component
     const productList = useSelector(state => state.productList);
-    const productDetailsTen = useSelector(state => state.productList10);
+    const productDetailsTen = useSelector(state => state.featuredProducts);
     const dispatch = useDispatch();
     const { loading, error, products } = productList;
     const { productsFeatured } = productDetailsTen;
@@ -21,9 +21,11 @@ export default function HomeScreen() {
 
     }
 
+    console.log(products)
+
     const handleClick = () => <Link to="/cart" />
     useEffect(() => {
-        dispatch(tenProducts())
+        dispatch(featuredProducts())
         dispatch(listProducts());
     }, [dispatch]);
     return (
@@ -35,7 +37,7 @@ export default function HomeScreen() {
                 <Carousel variant="dark" style={{ padding: "0px 0px 0px 200px" }}>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(19)}
+                            to={componentLoad(13)}
                         >
                             <img
                                 className="d-block w-100 large"
@@ -44,7 +46,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(19)}
+                            to={componentLoad(13)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
@@ -65,7 +67,7 @@ export default function HomeScreen() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(20)}
+                            to={componentLoad(14)}
                         >                            <img
                                 className="d-block w-100 large"
                                 src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
@@ -73,7 +75,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(20)}
+                            to={componentLoad(14)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
@@ -94,7 +96,7 @@ export default function HomeScreen() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(16)}
+                            to={componentLoad(11)}
                         >
                             <img
                                 className="d-block w-100 large"
@@ -103,7 +105,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(16)}
+                            to={componentLoad(11)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
