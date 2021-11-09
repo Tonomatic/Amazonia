@@ -31,9 +31,10 @@ body {
   display: grid;
   grid-template-areas:
     "showcase"
-    "main";
+    "main"
+    "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 25rem 1fr;
+  grid-template-rows: 1fr auto;
   height: 100%;
 }
 

@@ -5,6 +5,7 @@ import { cartReducer } from './reducers/cartReducers';
 import { featuredProductsReducer, productDetailsReducer, productListReducer } from './reducers/productReducers';
 import { reviewListReducer } from './reducers/reviewReducer';
 import sessionReducer from './reducers/userReducer';
+import usersReducer from './reducers/users';
 
 const initialState = {
     cart: {
@@ -13,6 +14,7 @@ const initialState = {
 };
 const reducer = combineReducers({
     session: sessionReducer,
+    users: usersReducer,
     productList: productListReducer,
     featuredProducts: featuredProductsReducer,
     productDetails: productDetailsReducer,
