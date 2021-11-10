@@ -143,8 +143,12 @@ export default function ProductScreen(props) {
                         {loading ? (
                             <LoadingBox />
                         ) : review?.review ? (
-                            <div>
-                                <b>Your Review</b>
+                            <div style={{fontSize:"1.6rem"}}>
+                                Your Review
+                                <div style={{display:"inline"}}>
+                                <i onClick={() => alert("you are editing")} style={{cursor:"pointer",padding:"1.2rem"}} class="fas fa-pencil-alt"></i>
+                                <i onClick={() => alert("here we delete review")} style={{cursor:"pointer"}} class="fas fa-trash"></i>
+                                </div>
                                 <div style={{ borderBottom: "1px solid grey", fontSize: "1.5rem", padding: "2rem", margin: "1rem" }}>
                                     <div style={{ paddingBottom: "1rem" }}>
                                         <b>{user[review?.userId - 1]?.username}</b>
@@ -194,7 +198,7 @@ export default function ProductScreen(props) {
                                 </div>
                             </div>
                         </div> */}
-                        <div>
+                        <div style={{fontSize:"1.8rem"}}>
                             <b>All Reviews
                             </b>
                         </div>

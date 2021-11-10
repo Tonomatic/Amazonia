@@ -48,7 +48,8 @@ router.get('/:productId/reviews', asyncHandler(async function (req, res) {
     const reviews = await Review.findAll({
         where: {
             productId
-        }
+        },
+        order: [['createdAt', 'DESC']]
     })
     return res.json(reviews)
 }))
