@@ -3,7 +3,7 @@ import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducers';
 import { featuredProductsReducer, productDetailsReducer, productListReducer } from './reducers/productReducers';
-import { reviewListReducer } from './reducers/reviewReducer';
+import { oneReviewReducer, reviewListReducer } from './reducers/reviewReducer';
 import sessionReducer from './reducers/userReducer';
 import usersReducer from './reducers/users';
 
@@ -19,6 +19,7 @@ const reducer = combineReducers({
     featuredProducts: featuredProductsReducer,
     productDetails: productDetailsReducer,
     reviewList: reviewListReducer,
+    oneReview: oneReviewReducer,
     cart: cartReducer,
 })
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { detailsProduct } from '../actions/productActions';
-import { listReviews } from '../actions/reviewActions';
+import { createReview, listReviews, myReview } from '../actions/reviewActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
@@ -13,18 +13,23 @@ export default function ProductScreen(props) {
     //compares and finds the product that matches url id
     const productDetails = useSelector(state => state.productDetails);
     const reviewsList = useSelector(state => state.reviewList);
+    const usersReview = useSelector(state => state.oneReview)
     const [qty, setQty] = useState(1)
-    const [state, setState] = useState(true)
+    const [state, setState] = useState(false)
     const user = useSelector(state => state.users);
+    const currentUser = useSelector(state => state.session.user)
+    const [reviewText, setReviewText] = useState("")
 
     const { loading, error, product } = productDetails;
     const { reviews } = reviewsList;
+    const { review } = usersReview;
 
     const dispatch = useDispatch();
     const productId = props.match.params.id;
 
     useEffect(() => {
         dispatch(getAllUsers())
+        dispatch(myReview(productId))
         dispatch(detailsProduct(productId));
         dispatch(listReviews(productId))
 
@@ -32,14 +37,24 @@ export default function ProductScreen(props) {
             setState(false)
         }
     }, [dispatch, productId])
+    console.log(review)
 
-    console.log(reviews)
-
+    const createRev = async (e) => {
+        e.preventDefault();
+        dispatch(createReview(reviewText, productId, currentUser.id))
+        setState(false)
+    }
 
     const addToCartHandler = () => {
         //changes the rows in react application
         props.history.push(`/cart/${productId}?qty=${qty}`)
     }
+
+    const changeReview = (e) => {
+        e.preventDefault();
+        setReviewText(e.target.value)
+    }
+
 
     return (
         <div className="grid-container2">
@@ -49,7 +64,7 @@ export default function ProductScreen(props) {
                 <MessageBox variant="danger">{error}</MessageBox>
             ) : (
                 <>
-                    <div className="showcase">
+                    <div className="showcase" style={{ paddingBottom: "6rem" }}>
                         <Link to="/">Back to Results</Link>
                         <div className="rows top">
                             <div className="col-3">
@@ -60,12 +75,12 @@ export default function ProductScreen(props) {
                                     <li>
                                         <h1><b>{product.name}</b></h1>
                                     </li>
-                                    <li>
+                                    <li style={{ borderBottom: "1px solid grey", paddingBottom: "5px" }}>
                                         <Rating rating={Math.random() * 5} numReviews={product.numReviews} />
                                     </li>
                                     <li><b>Price :</b> ${product.price}</li>
                                     <li>
-                                        <b>Description:</b>
+                                        <b>About this item:</b>
                                         <p>{product.description}</p>
                                     </li>
 
@@ -123,17 +138,77 @@ export default function ProductScreen(props) {
                             </div>
                         </div>
                     </div>
-                    <h1 className="main2">
-                        <div style={{marginBottom:"2rem"}}>
-                            <b>Reviews
+                    <h1 className="main2" style={{ width: "75%" }}>
+
+                        {loading ? (
+                            <LoadingBox />
+                        ) : review?.review ? (
+                            <div>
+                                <b>Your Review</b>
+                                <div style={{ borderBottom: "1px solid grey", fontSize: "1.5rem", padding: "2rem", margin: "1rem" }}>
+                                    <div style={{ paddingBottom: "1rem" }}>
+                                        <b>{user[review?.userId - 1]?.username}</b>
+                                    </div>
+                                    <div style={{ paddingBottom: "1rem" }}>
+                                        "{review?.review}"
+                                    </div>
+                                    <div style={{ fontSize: "20px", color: "grey" }}>
+                                        {review?.createdAt}
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <button style={{ margin: "2rem 2rem 2rem 0rem" }} onClick={() => setState(true)}>
+                                    Create a Review
+                                </button>
+                                {state ? (
+                                    <div>
+                                        <form onSubmit={createRev} method="POST">
+                                            <textarea
+                                                placeholder="Add Review..."
+                                                value={reviewText}
+                                                onChange={changeReview}
+                                            />
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                ) : (
+                                    <></>
+                                )
+
+                                }
+                            </div>
+                        )
+                        }
+                        {/*
+                        <div>
+                            <b>Your Review</b>
+                            <div style={{ borderBottom: "1px solid grey", fontSize: "1.5rem", padding: "2rem", margin: "1rem" }}>
+                                <b>{user[review?.userId - 1]?.username}</b>
+                                <div>
+                                    "{review?.review}"
+                                </div>
+                                <div style={{ fontSize: "20px", color: "grey" }}>
+                                    {review?.createdAt}
+                                </div>
+                            </div>
+                        </div> */}
+                        <div>
+                            <b>All Reviews
                             </b>
                         </div>
-                        <div style={{ border: "3px solid grey", padding: "1rem" }}>
+                        <div style={{ padding: "1rem" }}>
                             {reviews?.map(each => (
-                                <div style={{borderBottom:"1px solid grey",padding:"2rem",margin:"1rem"}}>
-                                    <b>{user[each.userId-1].username} says:</b>
-                                    <div>
+                                <div key={each.id} style={{ borderBottom: "1px solid grey", fontSize: "1.5rem", padding: "2rem", margin: "1rem" }}>
+                                    <div style={{ paddingBottom: "1rem" }}>
+                                        <b>{user[each.userId - 1]?.username}</b>
+                                    </div>
+                                    <div style={{paddingBottom: "1rem"}}>
                                         "{each.review}"
+                                    </div>
+                                    <div style={{ fontSize: "20px", color: "grey" }}>
+                                        {each.createdAt}
                                     </div>
                                 </div>
                             ))}

@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { Products, Review, User, Rating } = require('../../db/models')
-const { requireAuth } = require("../../utils/auth")
+const { requireAuth, restoreUser } = require("../../utils/auth")
 const Sequelize = require('sequelize')
 const router = express.Router();
 
@@ -56,13 +56,16 @@ router.get('/:productId/reviews', asyncHandler(async function (req, res) {
 
 
 //gets user's review for a specific product
-router.get('/:productId/review', requireAuth, asyncHandler(async function (req, res) {
+router.get('/:productId/review', restoreUser, asyncHandler(async function (req, res) {
     const productId = parseInt(req.params.productId, 10)
-    const userId = req.user.id
-    const review = await Review.findByPk({
+    // const userId = req.user.id
+    // const { userId } = req.session.auth
+    // const userId = 2;
+    const { user } = req;
+    const review = await Review.findOne({
         where: {
             productId,
-            userId
+            userId: user.id
         }
     })
 
@@ -78,7 +81,7 @@ router.post('/:productId/review', requireAuth, asyncHandler(async function (req,
     let newReview = {
         userId,
         productId,
-        review: req.body.text
+        review: req.body.review
     }
 
     const review = await Review.create(newReview)

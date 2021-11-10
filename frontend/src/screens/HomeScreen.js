@@ -20,9 +20,6 @@ export default function HomeScreen() {
         }
 
     }
-
-    console.log(products)
-
     const handleClick = () => <Link to="/cart" />
     useEffect(() => {
         dispatch(featuredProducts())
