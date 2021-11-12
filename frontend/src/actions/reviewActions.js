@@ -55,7 +55,7 @@ export const createReview = (review, productId, userId) => async (dispatch) => {
             })
         });
         const res = await response.json();
-        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: response })
+        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: res })
     } catch (error) {
         //dispatching fail scenario
         dispatch({ type: REVIEW_CREATE_FAIL, payload: error.message })
