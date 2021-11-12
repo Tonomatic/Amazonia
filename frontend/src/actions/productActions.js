@@ -14,22 +14,21 @@ export const listProducts = () => async (dispatch) => {
         //dispatching fail scenario
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message })
     }
-
 }
 
-export const tenProducts = () => async (dispatch) => {
+
+export const featuredProducts = () => async (dispatch) => {
     dispatch({
         type: PRODUCT_LIST_REQUEST1
     });
 
     try {
-        const { data } = await Axios.get('/api/products/ten');
+        const { data } = await Axios.get('/api/products/featured');
         dispatch({ type: PRODUCT_LIST_SUCCESS1, payload: data })
     } catch (error) {
         //dispatching fail scenario
         dispatch({ type: PRODUCT_LIST_FAIL1, payload: error.message })
     }
-
 }
 
 

@@ -30,6 +30,11 @@ router.get(
     }
 );
 
+router.get('/getAll', restoreUser, asyncHandler(async function (req, res) {
+    const user = await User.findAll()
+    return res.json(user)
+}))
+
 
 router.post(
     '/',

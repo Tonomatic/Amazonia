@@ -2,8 +2,10 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducers';
-import { productDetailsReducer, productListReducer, tenProductsReducer } from './reducers/productReducers';
+import { featuredProductsReducer, productDetailsReducer, productListReducer } from './reducers/productReducers';
+import { oneReviewReducer, reviewListReducer } from './reducers/reviewReducer';
 import sessionReducer from './reducers/userReducer';
+import usersReducer from './reducers/users';
 
 const initialState = {
     cart: {
@@ -12,9 +14,12 @@ const initialState = {
 };
 const reducer = combineReducers({
     session: sessionReducer,
+    users: usersReducer,
     productList: productListReducer,
-    productList10: tenProductsReducer,
+    featuredProducts: featuredProductsReducer,
     productDetails: productDetailsReducer,
+    reviewList: reviewListReducer,
+    oneReview: oneReviewReducer,
     cart: cartReducer,
 })
 

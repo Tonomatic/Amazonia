@@ -3,37 +3,38 @@ import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts, tenProducts } from '../actions/productActions';
+import { listProducts, featuredProducts } from '../actions/productActions';
 import Carousel from 'react-bootstrap/Carousel'
 import { Link } from 'react-router-dom';
 
 export default function HomeScreen() {
     //react hook, to manage state component
     const productList = useSelector(state => state.productList);
-    const productDetailsTen = useSelector(state => state.productList10);
+    const productDetailsTen = useSelector(state => state.featuredProducts);
     const dispatch = useDispatch();
     const { loading, error, products } = productList;
+    const { productsFeatured } = productDetailsTen;
     const componentLoad = (x) => {
         if (!loading && !error) {
             return `/product/${x}`
         }
 
     }
-
     const handleClick = () => <Link to="/cart" />
     useEffect(() => {
-        //sending ajax request
-        dispatch(tenProducts())
+        dispatch(featuredProducts())
         dispatch(listProducts());
     }, [dispatch]);
     return (
         <div className="grid-container2">
             <div className="showcase" style={{ fontSize: "2rem", fontWeight: "bold" }}>
                 Featured
+                <div>
+                </div>
                 <Carousel variant="dark" style={{ padding: "0px 0px 0px 200px" }}>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(12 + 1)}
+                            to={componentLoad(13)}
                         >
                             <img
                                 className="d-block w-100 large"
@@ -42,7 +43,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(12 + 1)}
+                            to={componentLoad(13)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
@@ -53,9 +54,9 @@ export default function HomeScreen() {
                                     <>
 
                                         <h4 style={{ fontWeight: "bold" }}>
-                                            {products[12].name}
+                                            {products[18].name}
                                         </h4>
-                                        <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[12].description}</p>
+                                        <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[18].description}</p>
                                     </>
                                 )}
                             </Carousel.Caption>
@@ -63,7 +64,7 @@ export default function HomeScreen() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(13 + 1)}
+                            to={componentLoad(14)}
                         >                            <img
                                 className="d-block w-100 large"
                                 src="https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
@@ -71,7 +72,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(13 + 1)}
+                            to={componentLoad(14)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
@@ -82,9 +83,9 @@ export default function HomeScreen() {
                                     <>
 
                                         <h4 style={{ fontWeight: "bold" }}>
-                                            {products[13].name}
+                                            {products[19].name}
                                         </h4>
-                                        <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[12].description}</p>
+                                        <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[19].description}</p>
                                     </>
                                 )}
                             </Carousel.Caption>
@@ -92,7 +93,7 @@ export default function HomeScreen() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <Link
-                            to={componentLoad(10 + 1)}
+                            to={componentLoad(11)}
                         >
                             <img
                                 className="d-block w-100 large"
@@ -101,7 +102,7 @@ export default function HomeScreen() {
                             />
                         </Link>
                         <Link
-                            to={componentLoad(10 + 1)}
+                            to={componentLoad(11)}
                         >
                             <Carousel.Caption style={{ paddingBottom: "5rem", width: "70rem", paddingLeft: "15%" }}>
                                 {loading ? (
@@ -113,9 +114,9 @@ export default function HomeScreen() {
                                         <>
 
                                             <h4 style={{ fontWeight: "bold" }}>
-                                                {products[10].name}
+                                                {products[15].name}
                                             </h4>
-                                            <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[12].description}</p>
+                                            <p style={{ fontWeight: "normal", fontSize: "1rem" }}>{products[15].description}</p>
                                         </>
                                     )
                                 }
@@ -130,11 +131,17 @@ export default function HomeScreen() {
                 ) : error ? (
                     <MessageBox variant="danger">{error}</MessageBox>
                 ) : (
-                    <div className="rowsHome center">
-                        {products.map((item) => (
-                            <Product key={item.id} product={item} />
-                        ))}
-                    </div>
+                    <>
+                        <div style={{ fontSize: "2rem", fontWeight: "bold" }}>More Products you might like</div>
+                        <div className="rowsHome center">
+                            {productsFeatured?.map((item) => (
+                                <Product key={item.id} product={item} />
+                            ))}
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: "2rem" }}>
+                            <Link to="/all">More...</Link>
+                        </div>
+                    </>
                 )}
             </div>
         </div>
