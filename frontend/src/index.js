@@ -3,8 +3,25 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { restoreCSRF, csrfFetch } from './reducers/csrf.js';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
+import * as sessionActions from './reducers/userReducer';
+
+if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = csrfFetch;
+  window.store = store;
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = csrfFetch;
+  window.store = store;
+  window.sessionActions = sessionActions;
+}
 
 ReactDOM.render(
   <Provider store={store}>

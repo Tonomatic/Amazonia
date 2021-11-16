@@ -163,9 +163,20 @@ li {
   margin-top: 1rem;
 }
 
+.demo {
+  all:unset;
+  color: white;
+  cursor: pointer;
+}
+
+.demo:hover {
+  color: #ff8000;
+}
+
 a:hover {
   color: #ff8000;
 }
+
 
 .userProfile:hover {
   color: #ff8000;
