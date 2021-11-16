@@ -71,7 +71,7 @@ function Navigation({ isLoaded }) {
                             </li>
                             <li>
                                 <Link to="/all" onClick={handleClose}>All</Link>
-                            </li>
+                            </li> 
                         </div>
                     </Offcanvas>
                 </div>
