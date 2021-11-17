@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import Button from '@restart/ui/esm/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas'
+import { useDispatch, useSelector } from 'react-redux';
+import * as sessionActions from '../reducers/userReducer';
+
+
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
     const products = useSelector(state => state.productList.products)
     const loading = useSelector(state => state.productList.loading)
     const [category, setCategory] = useState("electronics")
-
     const [show, setShow] = useState(false);
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
-
+    const dispatch = useDispatch();
 
     const categories = (x) => {
         if (x !== category) {
@@ -23,6 +25,18 @@ function Navigation({ isLoaded }) {
             return false
         }
     }
+
+    const demoLogin = async (e) => {
+        const credential = 'demo@user.io';
+        const password = 'password';
+        e.preventDefault();
+        return dispatch(sessionActions.login({ credential, password }))
+            .catch(async (res) => {
+                const data = await res.json();
+            });
+
+    }
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -40,9 +54,10 @@ function Navigation({ isLoaded }) {
         );
     } else {
         sessionLinks = (
-            <div  >
+            <div>
                 <NavLink to="/login">Log In</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
+                <button className="demo" onClick={demoLogin}>Demo-Login</button>
             </div>
         );
     }
@@ -57,21 +72,26 @@ function Navigation({ isLoaded }) {
                             <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
                         </Offcanvas.Header>
                         <div className="sidebarContent">
-                            <li>
-                                <Link to={`/categories/electronics`} onClick={handleClose}>Electronics</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/jewelery" onClick={handleClose}>Jewelery</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/mensClothing" onClick={handleClose}>Men's Clothing</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/womensClothing" onClick={handleClose}>Women's Clothing</Link>
-                            </li>
-                            <li>
-                                <Link to="/all" onClick={handleClose}>All</Link>
-                            </li>
+                            <nav className="menu-nav">
+                                <ul>
+                                    <Link to={`/categories/electronics`} onClick={handleClose}>
+                                        <li >Electronics</li>
+                                    </Link>
+
+                                    <Link to="/categories/jewelery" onClick={handleClose}>
+                                        <li>Jewelery</li>
+                                    </Link>
+                                    <Link to="/categories/mensClothing" onClick={handleClose}>
+                                        <li>Men's Clothing</li>
+                                    </Link>
+                                    <Link to="/categories/womensClothing" onClick={handleClose}>
+                                        <li>Women's Clothing</li>
+                                    </Link>
+
+                                </ul>
+                            </nav>
+
+                            {/* <Link to="/all" onClick={handleClose}>All</Link> */}
                         </div>
                     </Offcanvas>
                 </div>

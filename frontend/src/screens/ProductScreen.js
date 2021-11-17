@@ -37,11 +37,12 @@ export default function ProductScreen(props) {
             setState(false)
         }
     }, [dispatch, productId])
-    console.log(review)
 
     const createRev = async (e) => {
         e.preventDefault();
-        dispatch(createReview(reviewText, productId, currentUser.id))
+        dispatch(createReview(currentUser.id, productId, reviewText))
+        dispatch(myReview(productId))
+        dispatch(listReviews(productId))
         setState(false)
     }
 
@@ -146,8 +147,8 @@ export default function ProductScreen(props) {
                             <div style={{fontSize:"1.6rem"}}>
                                 Your Review
                                 <div style={{display:"inline"}}>
-                                <i onClick={() => alert("you are editing")} style={{cursor:"pointer",padding:"1.2rem"}} class="fas fa-pencil-alt"></i>
-                                <i onClick={() => alert("here we delete review")} style={{cursor:"pointer"}} class="fas fa-trash"></i>
+                                <i onClick={() => alert("you are editing")} style={{cursor:"pointer",padding:"1.2rem"}} className="fas fa-pencil-alt"></i>
+                                <i onClick={() => alert("here we delete review")} style={{cursor:"pointer"}} className="fas fa-trash"></i>
                                 </div>
                                 <div style={{ borderBottom: "1px solid grey", fontSize: "1.5rem", padding: "2rem", margin: "1rem" }}>
                                     <div style={{ paddingBottom: "1rem" }}>
@@ -169,10 +170,10 @@ export default function ProductScreen(props) {
                                 {state ? (
                                     <div>
                                         <form onSubmit={createRev} method="POST">
-                                            <textarea
+                                            <input
                                                 placeholder="Add Review..."
                                                 value={reviewText}
-                                                onChange={changeReview}
+                                                onChange={(e) => setReviewText(e.target.value)}
                                             />
                                             <button type="submit">Submit</button>
                                         </form>

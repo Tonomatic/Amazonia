@@ -18,25 +18,11 @@ export const listReviews = (productId) => async (dispatch) => {
     }
 }
 
-export const myReview = (productId) => async(dispatch) => {
-    dispatch({ type: REVIEW_ONE_REQUEST, payload: productId });
 
-    try {
-        const { data } = await Axios.get(`/api/products/${productId}/review`)
-        dispatch({ type: REVIEW_ONE_SUCCESS, payload: data });
-    } catch (error) {
-        dispatch({
-            type: REVIEW_ONE_FAIL, payload: error.response && error.response.data.message ?
-                error.response.data.message : error.message,
-        });
-    }
-};
-
-
-export const createReview = (review, productId, userId) => async (dispatch) => {
+export const createReview = (userId, productId, review) => async (dispatch) => {
     dispatch({
         type: REVIEW_CREATE_REQUEST,
-        payload: {review, productId, userId}
+        payload: {userId, productId, review}
     });
 
     try {
@@ -55,9 +41,23 @@ export const createReview = (review, productId, userId) => async (dispatch) => {
             })
         });
         const res = await response.json();
-        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: response })
+        dispatch({ type: REVIEW_CREATE_SUCCESS, payload: res })
     } catch (error) {
         //dispatching fail scenario
         dispatch({ type: REVIEW_CREATE_FAIL, payload: error.message })
     }
 }
+
+export const myReview = (productId) => async(dispatch) => {
+    dispatch({ type: REVIEW_ONE_REQUEST, payload: productId });
+
+    try {
+        const { data } = await Axios.get(`/api/products/${productId}/review`)
+        dispatch({ type: REVIEW_ONE_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({
+            type: REVIEW_ONE_FAIL, payload: error.response && error.response.data.message ?
+                error.response.data.message : error.message,
+        });
+    }
+};

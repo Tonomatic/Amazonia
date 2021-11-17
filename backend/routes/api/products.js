@@ -76,11 +76,12 @@ router.get('/:productId/review', restoreUser, asyncHandler(async function (req, 
 
 
 //creates review on product
-router.post('/:productId/review', requireAuth, asyncHandler(async function (req, res) {
+router.post('/:productId/review', restoreUser, asyncHandler(async function (req, res) {
     const productId = parseInt(req.params.productId, 10)
-    const userId = req.user.id
+    // const userId = req.user.id
+    const { user } = req;
     let newReview = {
-        userId,
+        userId: user.id,
         productId,
         review: req.body.review
     }
