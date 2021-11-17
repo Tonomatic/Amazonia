@@ -33,10 +33,10 @@ export const myReview = (productId) => async(dispatch) => {
 };
 
 
-export const createReview = (review, productId, userId) => async (dispatch) => {
+export const createReview = (userId, productId, review) => async (dispatch) => {
     dispatch({
         type: REVIEW_CREATE_REQUEST,
-        payload: {review, productId, userId}
+        payload: {userId, productId, review}
     });
 
     try {

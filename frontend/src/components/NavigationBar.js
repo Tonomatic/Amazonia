@@ -72,21 +72,26 @@ function Navigation({ isLoaded }) {
                             <Offcanvas.Title style={{ fontSize: "1.6rem", fontWeight: "bold" }}>Categories</Offcanvas.Title>
                         </Offcanvas.Header>
                         <div className="sidebarContent">
-                            <li>
-                                <Link to={`/categories/electronics`} onClick={handleClose}>Electronics</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/jewelery" onClick={handleClose}>Jewelery</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/mensClothing" onClick={handleClose}>Men's Clothing</Link>
-                            </li>
-                            <li>
-                                <Link to="/categories/womensClothing" onClick={handleClose}>Women's Clothing</Link>
-                            </li>
-                            <li>
-                                <Link to="/all" onClick={handleClose}>All</Link>
-                            </li>
+                            <nav className="menu-nav">
+                                <ul>
+                                    <Link to={`/categories/electronics`} onClick={handleClose}>
+                                        <li >Electronics</li>
+                                    </Link>
+
+                                    <Link to="/categories/jewelery" onClick={handleClose}>
+                                        <li>Jewelery</li>
+                                    </Link>
+                                    <Link to="/categories/mensClothing" onClick={handleClose}>
+                                        <li>Men's Clothing</li>
+                                    </Link>
+                                    <Link to="/categories/womensClothing" onClick={handleClose}>
+                                        <li>Women's Clothing</li>
+                                    </Link>
+
+                                </ul>
+                            </nav>
+
+                            {/* <Link to="/all" onClick={handleClose}>All</Link> */}
                         </div>
                     </Offcanvas>
                 </div>
