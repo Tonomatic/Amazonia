@@ -37,10 +37,12 @@ export default function ProductScreen(props) {
             setState(false)
         }
     }, [dispatch, productId])
- 
+
     const createRev = async (e) => {
         e.preventDefault();
         dispatch(createReview(currentUser.id, productId, reviewText))
+        dispatch(myReview(productId))
+        dispatch(listReviews(productId))
         setState(false)
     }
 
