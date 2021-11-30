@@ -83,7 +83,7 @@ function SignupFormPage() {
                                         required
                                     />
                                 </div>
-                                <button type="submit">Sign Up</button>
+                                <button type="submit" style={{ margin: "1rem" }}>Sign Up</button>
                             </form>
                         </div>
                     </div>

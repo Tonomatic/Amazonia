@@ -27,7 +27,7 @@ function LoginFormPage() {
 
     return (
         <div className="first_wrapper">
-            <div className="form_wrapper">
+            <div className="form_wrapper" style={{height:"400px"}}>
                 <div className="form_container">
                     <div className="title_container">
                         <h1>Login</h1>
@@ -62,7 +62,7 @@ function LoginFormPage() {
                                         required
                                     />
                                 </div>
-                                <button type="submit">Log In</button>
+                                <button type="submit" style={{ margin: "1rem" }}>Log In</button>
                             </form>
                         </div>
                     </div>
