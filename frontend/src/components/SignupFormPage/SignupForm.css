@@ -1,1 +1,12 @@
+.form_wrapper {
+  border: 2px solid black;
+  width: 30%;
+  background-color: #203040;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
 
+.icoon {
+  padding: 20px;
+}

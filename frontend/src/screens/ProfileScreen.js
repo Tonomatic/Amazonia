@@ -8,12 +8,12 @@ function Profile() {
 
     return (
         <div>
-            <li>
-                Usernxame: {user?.username}
-            </li>
-            <li>
+            <ol>
+                Username: {user?.username}
+            </ol>
+            <ol>
                 Email: {user?.email}
-            </li>
+            </ol>
         </div>
     );
 }
