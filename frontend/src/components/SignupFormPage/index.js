@@ -30,31 +30,33 @@ function SignupFormPage() {
     };
 
     return (
-        <div class="form_wrapper">
-            <div class="form_container">
-                <div class="title_container">
-                    <h2>Register</h2>
-                </div>
-                <div class="row clearfix">
-                    <div class="">
-                        <form>
-                            <div class="input_field"> <span className="icoon"><i aria-hidden="true" class="fa fa-envelope"></i></span>
-                                <input type="email" name="email" placeholder="Email" required />
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col_half">
-                                    <div class="input_field"> <span className="icoon"><i aria-hidden="true" class="fa fa-user"></i></span>
-                                        <input type="text" name="name" placeholder="Username" required />
+        <div className="first_wrapper">
+            <div className="form_wrapper">
+                <div className="form_container">
+                    <div className="title_container">
+                        <h1>Register</h1>
+                    </div>
+                    <div className="row clearfix">
+                        <div className="">
+                            <form>
+                                <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-envelope"></i></span>
+                                    <input type="email" name="email" placeholder="Email" required />
+                                </div>
+                                <div className="row clearfix">
+                                    <div className="col_half">
+                                        <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-user"></i></span>
+                                            <input type="text" name="name" placeholder="Username" required />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="input_field"> <span className="icoon"><i aria-hidden="true" class="fa fa-lock"></i></span>
-                                <input type="password" name="password" placeholder="Password" required />
-                            </div>
-                            <div class="input_field"> <span className="icoon"><i aria-hidden="true" class="fa fa-lock"></i></span>
-                                <input type="password" name="password" placeholder="Re-type Password" required />
-                            </div>
-                        </form>
+                                <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-lock"></i></span>
+                                    <input type="password" name="password" placeholder="Password" required />
+                                </div>
+                                <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-lock"></i></span>
+                                    <input type="password" name="password" placeholder="Re-type Password" required />
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
