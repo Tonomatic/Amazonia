@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../reducers/userReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -35,18 +34,35 @@ function LoginFormPage() {
                     </div>
                     <div className="row clearfix">
                         <div className="">
-                            <form>
+                            <form onSubmit={handleSumbit}>
+                                <ul>
+                                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                                </ul>
                                 <div className="row clearfix">
                                     <div className="col_half">
                                         <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-user"></i></span>
-                                            <input type="text" name="name" placeholder="Username" required />
+                                            <input
+                                                type="text"
+                                                className="inputText"
+                                                placeholder="Username"
+                                                value={credential}
+                                                onChange={(e) => setCredential(e.target.value)}
+                                                required
+                                            />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-lock"></i></span>
-                                    <input type="password" name="password" placeholder="Password" required />
+                                    <input
+                                        type="password"
+                                        className="inputText"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
                                 </div>
-
+                                <button type="submit">Log In</button>
                             </form>
                         </div>
                     </div>

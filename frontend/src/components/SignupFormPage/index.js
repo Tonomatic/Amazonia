@@ -38,23 +38,52 @@ function SignupFormPage() {
                     </div>
                     <div className="row clearfix">
                         <div className="">
-                            <form>
+                            <form onSubmid={handleSubmit}>
                                 <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-envelope"></i></span>
-                                    <input type="email" name="email" placeholder="Email" required />
+                                    <input
+                                        className="inputText"
+                                        type="text"
+                                        value={email}
+                                        placeholder="Email"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
                                 </div>
                                 <div className="row clearfix">
                                     <div className="col_half">
                                         <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-user"></i></span>
-                                            <input type="text" name="name" placeholder="Username" required />
+                                            <input
+                                                className="inputText"
+                                                type="text"
+                                                placeholder="Username"
+                                                value={username}
+                                                onChange={(e) => setUsername(e.target.value)}
+                                                required
+                                            />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-lock"></i></span>
-                                    <input type="password" name="password" placeholder="Password" required />
+                                    <input
+                                        type="password"
+                                        className="inputText"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
                                 </div>
                                 <div className="input_field"> <span className="icoon"><i aria-hidden="true" className="fa fa-lock"></i></span>
-                                    <input type="password" name="password" placeholder="Re-type Password" required />
+                                    <input
+                                        type="password"
+                                        className="inputText"
+                                        value={confirmPassword}
+                                        placeholder="Confirm Password"
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        required
+                                    />
                                 </div>
+                                <button type="submit">Sign Up</button>
                             </form>
                         </div>
                     </div>
