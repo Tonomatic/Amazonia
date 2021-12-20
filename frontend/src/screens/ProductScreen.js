@@ -23,7 +23,7 @@ export default function ProductScreen(props) {
     const { loading, error, product } = productDetails;
     const { reviews } = reviewsList;
     const { review } = usersReview;
-
+    console.log(currentUser)
     const dispatch = useDispatch();
     const productId = props.match.params.id;
 
@@ -162,7 +162,7 @@ export default function ProductScreen(props) {
                                     </div>
                                 </div>
                             </div>
-                        ) : (
+                        ) : currentUser ? (
                             <div>
                                 <button style={{ margin: "2rem 2rem 2rem 0rem" }} onClick={() => setState(true)}>
                                     Create a Review
@@ -184,6 +184,10 @@ export default function ProductScreen(props) {
 
                                 }
                             </div>
+                        ) : (
+                            <h2>
+                                <Link to="/login"><b>Log In</b></Link> to leave a Review
+                            </h2>
                         )
                         }
                         {/*
