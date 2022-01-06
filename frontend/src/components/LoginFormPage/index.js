@@ -10,6 +10,16 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
+    const demoLogin = async (e) => {
+        const credential = 'demo@user.io';
+        const password = 'password';
+        e.preventDefault();
+        return dispatch(sessionActions.login({ credential, password }))
+            .catch(async (res) => {
+                const data = await res.json();
+            });
+
+    }
 
     if (sessionUser) return (
         <Redirect to="/" />
@@ -27,7 +37,7 @@ function LoginFormPage() {
 
     return (
         <div className="first_wrapper">
-            <div className="form_wrapper" style={{height:"400px"}}>
+            <div className="form_wrapper" style={{ height: "400px" }}>
                 <div className="form_container">
                     <div className="title_container">
                         <h1>Login</h1>
@@ -63,6 +73,7 @@ function LoginFormPage() {
                                     />
                                 </div>
                                 <button type="submit" style={{ margin: "1rem" }}>Log In</button>
+                                <button onClick={demoLogin}>Demo-Login</button>
                             </form>
                         </div>
                     </div>
