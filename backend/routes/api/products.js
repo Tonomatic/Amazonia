@@ -101,7 +101,7 @@ router.get('/:productId/ratings', asyncHandler(async function (req, res) {
         attributes: [[Sequelize.fn('AVG', Sequelize.col('rating')), 'rating']],
     });
 
-    return res.json(rating)
+    return res.json(rating[0].dataValues.rating)
 }))
 
 

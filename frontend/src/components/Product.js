@@ -23,7 +23,7 @@ export default function Product(props) {
                 <Link to={`/product/${product.id}`}>
                     <h2>{product.name}</h2>
                 </Link>
-                <Rating rating={averageRating == null ? 0 : averageRating } numReviews={product.numReviews}></Rating>
+                <Rating rating={3 } numReviews={product.numReviews}></Rating>
                 <div className="price">Price: ${product.price}</div>
             </div>
         </div>
